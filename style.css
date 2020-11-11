@@ -1,0 +1,47 @@
+#snake_container {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    border: solid thin grey;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: repeat(20,1fr);
+}
+#apple {
+    background-color: red;
+}
+.snake{
+    background-color: green;
+}
+.snake:nth-child(2) {
+    background-color: greenyellow;
+}
+#lost_container {
+    color: red;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.score {
+    display: block;
+    font-size: 20px;
+    color: black;
+    border: 2px solid var(--black-1);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#snake_replay {
+    margin: 10px auto 10px;
+    cursor: pointer;
+    display: none;
+    font-size: 20px;
+    color: red;
+    border: 2px solid var(--black-1);
+    border-radius: 10px;
+    padding: 10px;
+}
+#snake_replay:focus {
+    outline: none;
+    background-color: grey;
+}
