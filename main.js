@@ -74,7 +74,7 @@ setInterval(function() {
         }
         if (snakeXY[0][0] == appleX && snakeXY[0][1] == appleY) {
             scoreUpdate();
-            snakeLength+=2;
+            snakeLength+=3;
             defApple();
         }
         if (gen>0) {
