@@ -1,10 +1,10 @@
 #snake_container {
-    width: 600px;
-    height: 600px;
+    width: var(--snake-width);
+    height: var(--snake-width);
     display: grid;
     border: solid thin grey;
-    grid-template-columns: repeat(20,1fr);
-    grid-template-rows: repeat(20,1fr);
+    grid-template-columns: repeat(15,1fr);
+    grid-template-rows: repeat(15,1fr);
 }
 #apple {
     background-color: red;
@@ -44,4 +44,66 @@
 #snake_replay:focus {
     outline: none;
     background-color: grey;
+}
+
+
+
+#navigation {
+    display: grid;
+    background-color: var(--bg-card);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    
+    width: calc(var(--snake-width)*0.4);
+    height: calc(var(--snake-width)*0.4);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0px 0px;
+    grid-template-areas:
+      ". up ."
+      "left . right"
+      ". down .";
+}
+
+#navigation.error {
+    background-color: var(--red);
+}
+
+.navigation-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--red);
+    padding:10px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+}
+.navigation-left {
+    grid-area: left;
+    background-image: url('arrows/arrow-left.svg');
+    
+}
+  
+.navigation-right {
+    grid-area: right;
+    background-image: url('arrows/arrow-right.svg');
+
+}
+  
+.navigation-up {
+    grid-area: up;
+    background-image: url('arrows/arrow-up.svg');
+
+}
+  
+.navigation-down {
+    grid-area: down;
+    background-image: url('arrows/arrow-down.svg');
+
+}
+#navigation button {
+    border: none;
 }

@@ -4,7 +4,7 @@ const snake = document.getElementById("snake");
 const lostContainer = document.getElementById("lost_container");
 const score = document.getElementById("score");
 const restart = document.getElementById("snake_replay");
-var snakeXY = [[10,11]];
+var snakeXY = [[7,8]];
 var snakeLength = 1;
 var oldDir = 0;
 let gen=0;
@@ -12,6 +12,20 @@ var game=true;
 var scoreJS = 0;
 var appleX = 0;
 var appleY = 0;
+var Dir = 0;
+
+const button = document.getElementsByClassName("navigation-button");
+
+const move = (e) => {
+
+    if (e==0 && oldDir != 2) {oldDir = 1}
+    if (e==1 && oldDir != 1) {oldDir = 2}
+    if (e==2 && oldDir != 4) {oldDir = 3}
+    if (e==3 && oldDir != 3) {oldDir = 4}
+}
+
+
+
 var scoreUpdate = () => {
     scoreJS+=10;
     score.innerHTML = scoreJS;
@@ -23,31 +37,32 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 var defApple = () => {
-    appleX=getRndInteger(1,21);
-    appleY=getRndInteger(1,21);
+    appleX=getRndInteger(1,16);
+    appleY=getRndInteger(1,16);
     rmApple = document.getElementById('apple');
     container.removeChild(rmApple);
     container.innerHTML += "<div id='apple'></div>";
     document.getElementById('apple').style.gridArea = appleX+" / "+appleY;
-}
-defApple()
+};
+defApple();
+
+
 setInterval(function() {
-    document.addEventListener('keydown', key);
-    function key(e) {
-        if (e.code == 'KeyW' && oldDir != 2) {
-            oldDir=1;
-        }
-        else if (e.code == 'KeyS' && oldDir != 1){
-            oldDir=2;
-        }
-        else if (e.code == 'KeyA' && oldDir != 4) {
-            oldDir=3;
-        }
-        else if (e.code == 'KeyD' && oldDir != 3) {
-            oldDir=4;
-        }
-    }
     if (game==true) {
+        document.onkeypress=function(e){
+            if (e.code == 'KeyW' && oldDir != 2) {
+                oldDir=1;
+            }
+            if (e.code == 'KeyS' && oldDir != 1){
+                oldDir=2;
+            }
+            if (e.code == 'KeyA' && oldDir != 4) {
+                oldDir=3;
+            }
+            if (e.code == 'KeyD' && oldDir != 3) {
+                oldDir=4;
+            }
+        }
         if (oldDir==1) {
             snakeXY.splice(0,0,([snakeXY[0][0]-1,snakeXY[0][1]]));
         }
@@ -92,7 +107,7 @@ setInterval(function() {
                 game=false;
             }
         }
-        if (snakeXY[0][0] > 20 || snakeXY[0][0] < 1 || snakeXY[0][1] > 20 || snakeXY[0][1] < 1) {
+        if (snakeXY[0][0] > 15 || snakeXY[0][0] < 1 || snakeXY[0][1] > 15 || snakeXY[0][1] < 1) {
             game=false;
         }
     }
@@ -100,4 +115,4 @@ setInterval(function() {
         lostContainer.innerHTML = "You lost";
         restart.style.display = "block";
     }  
-}, 100);
+}, 175);
