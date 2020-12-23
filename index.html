@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/TamaBlog/stylesheet.css">
     <link rel="stylesheet" href="/snakeJS/style.css">
     <link rel="stylesheet" href="/stylesheet.css">
+    <meta name="theme-color">
 
 </head>
 <body>
@@ -27,6 +28,8 @@
             <h1>retour</h1>
         </a>        
     </nav>
+    <button onclick="window.location.reload()" id="snake_replay">replay</button>
+    <div id="lost_container"></div>
     <div class="score">score : <span id="score">0</span></div>
     <main>
         <div id="snake_container">
@@ -38,8 +41,7 @@
             <button class="navigation-left navigation-button" onclick="move(2)"></button>
             <button class="navigation-right navigation-button" onclick="move(3)"></button>
         </div>
-        <button onclick="window.location.reload()" id="snake_replay">replay</button>
-        <div id="lost_container"></div>
+        
 
     </main>
     <script>
@@ -47,5 +49,6 @@
     </script>
     <script src="/snakeJS/main.js"></script>
     <script src="/TamaBlog/main.js"></script>
+    <script src="/main.js"></script>
 </body>
 </html>

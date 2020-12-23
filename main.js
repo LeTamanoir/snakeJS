@@ -17,7 +17,6 @@ var Dir = 0;
 const button = document.getElementsByClassName("navigation-button");
 
 const move = (e) => {
-
     if (e==0 && oldDir != 2) {oldDir = 1}
     if (e==1 && oldDir != 1) {oldDir = 2}
     if (e==2 && oldDir != 4) {oldDir = 3}
